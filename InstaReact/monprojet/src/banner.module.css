@@ -1,0 +1,146 @@
+
+
+/* Barre de navigation : fond blanc, ombre marquée en dessous */
+.banner {
+    --bleu: #0f766e;
+    --gris-champ: #d9d9d9;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 954px;
+    background: #ffffff;
+    border-radius: 0 0 26px 26px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.55);
+    font-family: "Lexend", Arial, sans-serif;
+    
+}
+
+/* Liens : en pilule, comme les boutons des formulaires */
+.NavLink {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 10px 22px;
+    border-radius: 999px;
+    color: #000000;
+    font-size: 17px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.NavLink:hover {
+    background: var(--gris-champ);
+    transform: translateY(-2px);
+}
+
+/* Page courante : React Router ajoute la classe globale "active" */
+.NavLink:global(.active) {
+    background: var(--bleu);
+    color: #ffffff;
+}
+
+.NavLink:global(.active):hover {
+    box-shadow: 0 6px 14px rgba(0, 140, 255, 0.35);
+}
+
+.NavLink:active {
+    transform: scale(0.98);
+}
+
+/* Barre de recherche : prend toute la place restante, bien large */
+.recherche {
+    flex: 1 1 0;
+    min-width: 140px;
+    max-width: 720px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.recherche input {
+    flex: 1;
+    min-width: 0;
+    height: 48px;
+    padding: 0 22px;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background: var(--gris-champ);
+    font-family: inherit;
+    font-size: 17px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.recherche input:focus {
+    border-color: var(--bleu);
+    box-shadow: 0 0 8px rgba(0, 140, 255, 0.3);
+}
+
+.recherche input::placeholder {
+    color: #6b6b6b;
+}
+
+.recherche button {
+    height: 48px;
+    padding: 0 28px;
+    border: none;
+    border-radius: 999px;
+    background: var(--bleu);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 17px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recherche button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 140, 255, 0.35);
+}
+
+.recherche button:active {
+    transform: scale(0.98);
+}
+
+/* Écrans moyens : on resserre pour que tout reste sur une seule ligne */
+@media (max-width: 900px) {
+    .banner {
+        gap: 8px;
+        padding: 12px 16px;
+    }
+
+    .NavLink {
+        padding: 8px 14px;
+        font-size: 15px;
+    }
+
+    .recherche button {
+        padding: 0 18px;
+    }
+}
+
+/* Très petits écrans (téléphone) : seulement là, la recherche passe dessous */
+@media (max-width: 600px) {
+    .banner {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 12px;
+    }
+
+    .recherche {
+        flex-basis: 100%;
+        max-width: none;
+    }
+
+    .recherche input,
+    .recherche button {
+        height: 42px;
+        font-size: 15px;
+    }
+}

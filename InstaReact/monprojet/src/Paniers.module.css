@@ -1,0 +1,47 @@
+.page {
+  max-width: 640px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+ 
+.liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ 
+.ligne {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+ 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+ 
+.quantite {
+  min-width: 1.5em;
+  text-align: center;
+}
+ 
+.sousTotal {
+  min-width: 5em;
+  text-align: right;
+}
+ 
+.total {
+  margin: 16px 0;
+  font-size: 1.1rem;
+}
+ 
+.compteur {
+  text-decoration: none;
+}
+ 

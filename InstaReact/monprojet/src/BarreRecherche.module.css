@@ -1,0 +1,87 @@
+/* Conteneur : champ en haut, résultats en dessous */
+.barre {
+    --bleu: #0070e0;
+    --bleu-ombre: rgba(0, 112, 224, 0.35);
+    --gris-champ: #d9d9d9;
+
+    width: calc(100% - 48px);
+    max-width: 480px;
+    margin: 20px 24px 0;
+    display: flex;
+    flex-direction: column;   /* empile le champ puis la liste */
+    gap: 14px;
+    font-family: "Lexend", Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Champ de recherche */
+.barre input {
+    width: 100%;
+    height: 48px;
+    padding: 0 22px;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background: var(--gris-champ);
+    color: #000;
+    font-family: inherit;
+    font-size: 17px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.barre input:focus {
+    border-color: var(--bleu);
+    box-shadow: 0 0 8px var(--bleu-ombre);
+}
+
+.barre input::placeholder {
+    color: #555;
+    opacity: 1;
+}
+
+/* Liste des résultats */
+.barre ul {
+    list-style: none;         /* supprime les puces */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.barre li {
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: #f2f2f2;
+    color: #000;
+    font-size: 16px;
+}
+
+/* Message "Aucun produit trouvé." */
+.barre p {
+    margin: 0;
+    padding: 0 22px;
+    color: #555;
+    font-size: 15px;
+}
+
+@media (max-width: 600px) {
+    .barre {
+        width: calc(100% - 24px);
+        margin: 12px 12px 0;
+    }
+
+    .barre input {
+        height: 42px;
+        font-size: 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .barre input {
+        transition: none;
+    }
+}

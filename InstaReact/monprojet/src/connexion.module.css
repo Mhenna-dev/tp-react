@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&display=swap");
+
+/* .header = la carte blanche (contient le h1 et le formulaire) */
+.header {
+    --bleu:#0f766e;
+    --gris-champ: #d9d9d9;
+    --erreur: #d93025;
+    --succes: #188038;
+
+    width: 100%;
+    max-width: 480px;
+    margin: 60px auto;
+    padding: 38px 42px 44px;
+    background: #ffffff;
+    border-radius: 26px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.55);
+    font-family: "Lexend", Arial, sans-serif;
+    color: #000000;
+    box-sizing: border-box;
+}
+
+.header h1 {
+    margin: 0 0 28px;
+    font-size: 38px;
+    font-weight: 400;
+    text-align: left;
+}
+
+/* Le formulaire n'a plus de fond : c'est .header qui fait la carte */
+.corps {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Champs : fond gris, bords très arrondis, sans bordure */
+.corps input {
+    width: 100%;
+    height: 54px;
+    padding: 0 22px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background: var(--gris-champ);
+    font-family: inherit;
+    font-size: 17px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.corps input:focus {
+    border-color: var(--bleu);
+    box-shadow: 0 0 8px rgba(0, 140, 255, 0.3);
+}
+
+.corps input::placeholder {
+    color: #6b6b6b;
+}
+
+/* Bouton : bleu, en pilule, centré */
+.corps button {
+    align-self: center;
+    margin-top: 12px;
+    padding: 14px 46px;
+    border: none;
+    border-radius: 999px;
+    background: var(--bleu);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 17px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.corps button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 140, 255, 0.35);
+}
+
+.corps button:active {
+    transform: scale(0.98);
+}
+
+/* Messages */
+.erreur {
+    margin: -8px 0 0;
+    padding-left: 10px;
+    color: var(--erreur);
+    font-size: 0.95rem;
+}
+
+.succes {
+    margin: 0;
+    text-align: center;
+    color: var(--succes);
+    font-size: 1.05rem;
+}
